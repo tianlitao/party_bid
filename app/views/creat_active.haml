@@ -1,0 +1,9 @@
+%header 创建活动
+  .header-left
+    %button.btn-style.btn-4(ng-show="activeone") 返回
+#wrapper.wrapper.scrollable
+  %form.wrapper-inner(name="form")
+    %fieldset.form-wrapper
+    %h5 活动名称
+    %input.input-full(ng-model="active"  )
+    %button.btn-style.btn-2(ng-click="create()" ng-disabled="!active") 创建
