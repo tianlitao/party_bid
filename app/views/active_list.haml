@@ -1,6 +1,6 @@
 %header 活动列表
   .header-right
-    %button.btn-style.btn-4(ng-click="creat_active()") 创建活动
+    %button.btn-style.btn-4(ng-click="creat_active()" ) 创建活动
 #wrapper.wrapper.scrollable
   %form.wrapper-inner
-    %button.btn-style.btn-2(ng-click="bid()") {{activeone}}
+    %button.btn-style.btn-2(ng-click="bid()" ng-repeat="active in actives") {{active.name}}

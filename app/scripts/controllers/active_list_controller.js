@@ -12,9 +12,15 @@ angular.module('angularApp')
         $scope.creat_active=function(){
 
             $location.path('creat_active')};
-        $scope.activeone = localStorage.getItem('activeone');
+        //$scope.activeone = localStorage.getItem('activeone');
+
+        $scope.actives=JSON.parse(localStorage.getItem('actives'))
 
 
 
 
-    })
+    }
+
+
+
+)
