@@ -8,32 +8,27 @@ angular.module('angularApp')
             'AngularJS',
             'Karma'
         ];
-//
-
-
-        //console.log("34535");
-
-        $scope.create = function () {
-
-
-            $location.path('bidding')
-
-            var active={name:$scope.active};
-
-
-            var actives=JSON.parse(localStorage.getItem("actives")) || [];
-
-            actives.unshift(active);
-
-            localStorage.setItem("actives",JSON.stringify(actives))
-
-
-
+        $scope.back_one=function(){
+            $location.path('active_list')
         }
-
-
-
-
-
+        $scope.create = function () {
+            var activity={name:$scope.activity};
+            var activities=JSON.parse(localStorage.getItem("activities")) || [];
+            var mark
+            var x;
+            for(x in activities) {
+                if ($scope.activity == activities[x].name) {
+                    confirm("活动名称重复")
+                    mark=8
+                    break;
+                }
+            }
+            if(mark!=8) {
+                activities.unshift(activity);
+                localStorage.setItem("activities", JSON.stringify(activities))
+                $location.path('bidding')
+            }
+        }
+        $scope.show=localStorage.getItem("activities")
 
     });

@@ -19,7 +19,8 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/creat_active', {
+
         templateUrl: 'views/creat_active.html',
         controller: 'Creat_activeCtrl'
       })
@@ -27,7 +28,7 @@ angular
         templateUrl: 'views/bidding.html',
         controller: 'BiddingCtrl'
       })
-      .when('/active_list', {
+      .when('/', {
         templateUrl: 'views/active_list.html',
         controller: 'Active_listCtrl'
         })

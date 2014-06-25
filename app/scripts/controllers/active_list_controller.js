@@ -4,19 +4,17 @@
 angular.module('angularApp')
     .controller('Active_listCtrl', function ($scope,$location) {
         $scope.awesomeThings = ['HTML5 Boilerplate','AngularJS','Karma']
-        $scope.active_list=localStorage.getItem('creat_active')
         $scope.bid=function(){
             $location.path('bidding')
         }
-
         $scope.creat_active=function(){
-
-            $location.path('creat_active')};
-
-        $scope.actives=JSON.parse(localStorage.getItem('actives'))
-
-
-
+            $location.path('creat_active')
+        };
+        $scope.activities=JSON.parse(localStorage.getItem('activities'))
+        if(localStorage.getItem("activities")) {}
+        else{
+        $location.path('creat_active')
+         }
 
     }
 

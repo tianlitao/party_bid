@@ -8,7 +8,8 @@ angular.module('angularApp')
             'AngularJS',
             'Karma'
         ];
-   $scope.back=function(){
+        $scope.back=function(){
        $location.path('active_list')
    }
+
     });
