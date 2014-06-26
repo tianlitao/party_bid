@@ -19,18 +19,18 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/creat_active', {
+      .when('/create_activity', {
 
-        templateUrl: 'views/creat_active.html',
-        controller: 'Creat_activeCtrl'
+        templateUrl: 'views/create_activity.html',
+        controller: 'Create_activityCtrl'
       })
       .when('/bidding', {
         templateUrl: 'views/bidding.html',
         controller: 'BiddingCtrl'
       })
       .when('/', {
-        templateUrl: 'views/active_list.html',
-        controller: 'Active_listCtrl'
+        templateUrl: 'views/activity_list.html',
+        controller: 'Activity_listCtrl'
         })
       .otherwise({
         redirectTo: '/'
