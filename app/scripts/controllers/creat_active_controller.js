@@ -3,11 +3,7 @@
  */
 angular.module('angularApp')
     .controller('Create_activityCtrl', function ($scope,$location) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+
         $scope.back_one=function(){
             $location.path('activity_list')
         }
@@ -19,6 +15,7 @@ angular.module('angularApp')
             for(recyle in activities) {
                 if ($scope.activity == activities[recyle].name) {
                     $scope.hide=1
+
                     if_mark=true
                     break;
                 }

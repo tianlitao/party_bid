@@ -3,4 +3,6 @@
     %button.btn-style.btn-4(ng-click="create_activity()" ) 创建活动
 #wrapper.wrapper.scrollable
   %form.wrapper-inner
-    %button.btn-style.btn-2(ng-click="bid()" ng-repeat="activity in activities" ) {{activity.name}}
+    %div.wrapper
+      %ul.list-style-2
+        %li(ng-click="bid()" ng-repeat="activity in activities" style="height:40px")  {{activity.name}}

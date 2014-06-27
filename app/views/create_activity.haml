@@ -2,12 +2,12 @@
   .header-left
     %button.btn-style.btn-4(ng-show="show" ng-click="back_one()") 返回
 #wrapper.wrapper.scrollable
-  %form.wrapper-inner
+  %form
     %fieldset.form-wrapper
     %h5 活动名称
     %input.input-full(ng-model="activity")
-    %button.btn-style.btn-2(ng-click="create()" ng-disabled="!activity") 创建
-
-
-
+    %p
+    %button.btn(ng-click="create()" ng-disabled="!activity" style="width:100%" ) 创建
     %div.logo-flat(style="color:#ff0000" ng-show="hide")  活动名重复
+
+
