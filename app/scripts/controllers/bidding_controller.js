@@ -11,5 +11,21 @@ angular.module('angularApp')
         $scope.back=function(){
        $location.path('activity_list')
    }
+        $scope.apply_status="2"
+
+        $scope.end=function(){
+            $scope.apply_status="2"
+        }
+        $scope.one=function(){
+            $scope.apply_status="1"
+
+        }
+        $scope.begain=function(){
+            $scope.apply_status="1"
+        }
+
+
+
+
 
     });
