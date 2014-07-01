@@ -76,6 +76,10 @@ module.exports = function (grunt) {
                 src: 'app/views/activity_list.haml',
                 dest: 'app/views/activity_list.html'
             },
+            bidding_now: {
+                src: 'app/views/bidding_now.haml',
+                dest: 'app/views/bidding_now.html'
+            },
             main: {
                 src: 'app/views/main.haml',
                 dest: 'app/views/main.html'

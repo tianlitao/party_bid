@@ -1,16 +1,19 @@
 /**
+ * Created by tlt on 14-6-30.
+ */
+/**
  * Created by tlt on 14-6-21.
  */
 angular.module('angularApp')
-    .controller('BiddingCtrl', function ($scope,$location) {
+    .controller('Bidding_nowCtrl', function ($scope,$location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
         $scope.back=function(){
-       $location.path('activity_list')
-   }
+            $location.path('activity_list')
+        }
         $scope.apply_status="2"
 
         $scope.end=function(){
@@ -23,7 +26,6 @@ angular.module('angularApp')
         $scope.begain=function(){
             $scope.apply_status="1"
         }
-
 
 
 
