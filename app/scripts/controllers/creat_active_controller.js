@@ -8,7 +8,7 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         $scope.create = function () {
-            var activity={'name':$scope.activity,'activity_staus':'apply_last','apply_list':[]};
+            var activity={'name':$scope.activity,'activity_staus':'','apply_list':[]};
             var activities=JSON.parse(localStorage.getItem("activities")) || [];
             var if_mark
             var recyle;
