@@ -23,7 +23,7 @@ angular.module('angularApp')
             }
             if(!if_mark) {
                 activities.unshift(activity);
-                localStorage.setItem("activities", JSON.stringify(activities))
+                localStorage.setItem("activities",JSON.stringify(activities))
                 $location.path('bidding')
             }
         }

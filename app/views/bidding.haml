@@ -4,6 +4,11 @@
   .header-right( ng-switch="apply_status")
     %button.btn-4(ng-switch-when="2" ng-click="begain()")开始
     %button.btn-4(ng-switch-when="1" ng-click="end()")结束　
+#wrapper.wrapper.scrollable
+  %form.wrapper-inner
+    %div.wrapper
+      %ul.list-style-2
+        %li(ng-repeat="a in applys" style="height:40px") {{a.apply_phone}}           {{a.apply_name}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li.active

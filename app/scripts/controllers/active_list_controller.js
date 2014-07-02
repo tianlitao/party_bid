@@ -7,7 +7,7 @@ angular.module('angularApp')
         $scope.bid=function(activity){
             $location.path('bidding')
             localStorage.current_activity = activity;
-        console.log(localStorage.current_activity)
+ //       console.log(localStorage.current_activity)
         }
         $scope.create_activity=function(){
             $location.path('create_activity')

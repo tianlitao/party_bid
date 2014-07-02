@@ -23,7 +23,9 @@ var native_accessor = {
 //  console.log(act_list[0].apply_list[0].apply_phone)
 //console.log(typeof(act_list[0].apply_list))
         for (var i in act_list) {
-            console.log(act_list[0].activity_staus)
+            //           console.log(localStorage.current_activity)
+            //      console.log(act_list[0].activity_staus)
+//          if(act_list[i].name==localStorage.current_activity){
             if (act_list[i].activity_staus == 'true') {
                 var message = json_message.messages[0].message.replace(/\s/g, "");
 //               console.log(message)
@@ -41,21 +43,23 @@ var native_accessor = {
                     for (var j = 0; j < act_list[i].apply_list.length; j++) {
                         if (apply_phone == act_list[i].apply_list[j].apply_phone) {
                             console.log('不能重复报名')
-
                             return
                         }
                     }
                     act_list[i].apply_list.push(apply_array)
                     //                   console.log(act_list[0].apply_list)
-                    localStorage.setItem('activities', JSON.stringify(act_list))
+
+                    localStorage.setItem('activities',JSON.stringify(act_list))
                     console.log("报名成功")
+                    break
 
                     //                    }
-
-
                 }
+                console.log("报名格式不对")
+                break
 
             }
+          //  console.log("活动尚未开始")
 
         }
     }
