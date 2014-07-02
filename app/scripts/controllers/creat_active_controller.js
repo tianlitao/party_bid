@@ -5,10 +5,11 @@ angular.module('angularApp')
     .controller('Create_activityCtrl', function ($scope,$location) {
 
         $scope.back_one=function(){
-            $location.path('activity_list')
+            $location.path('activity_list/')
+
         }
         $scope.create = function () {
-            var activity={'name':$scope.activity,'activity_staus':'','apply_list':[]};
+            var activity={'name':$scope.activity,'activity_staus':'false','apply_list':[]};
             var activities=JSON.parse(localStorage.getItem("activities")) || [];
             var if_mark
             var recyle;

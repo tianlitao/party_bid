@@ -17,15 +17,17 @@ angular.module('angularApp')
 
         $scope.begain=function(){
             $scope.apply_status="1"
-            apply_last=1
+            apply_last="true"
 
 
 
         var act = JSON.parse(localStorage.getItem("activities"));
-   //         console.log(act[0].activity_staus)
 
-console.log(typeof(act))
-            act.apply_status.push(apply_last)
+         console.log(typeof(act[0].activity_staus))
+            console.log(typeof(apply_last))
+
+
+            act[0].activity_staus=apply_last
             localStorage.setItem('activities', JSON.stringify(act))
 
         }
