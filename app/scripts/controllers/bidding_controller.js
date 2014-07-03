@@ -11,21 +11,14 @@ angular.module('angularApp')
         for (var i in action)
             if (action[i].name == localStorage.current_activity) {
                 $scope.applys = action[i].apply_list;
+                $scope.people=action[i].apply_list.length
             }
         for (var j in action) {
             if (action[j].name == localStorage.current_activity) {
                 if (action[j].activity_staus =='true') {
-
-
                     $scope.apply_status = "1"
-             //       $scope.disabled=true
-
-
-
                 } else {
                     $scope.apply_status = "2"
-            //        $scope.disabled=true
-
                 }
             }
         }
