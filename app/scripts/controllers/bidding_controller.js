@@ -8,27 +8,40 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         var action = JSON.parse(localStorage.getItem("activities"));
-        for (var i in action)
+//        console.log(action[0].bid_status==true)
+//        console.log(action[0].activity_staus=='true')
+
+        for (var i in action) {
             if (action[i].name == localStorage.current_activity) {
                 $scope.applys = action[i].apply_list;
-                $scope.people=action[i].apply_list.length
+                $scope.people = action[i].apply_list.length
             }
+        }
         for (var j in action) {
             if (action[j].name == localStorage.current_activity) {
-                if (action[j].activity_staus =='true') {
+                if (action[j].activity_staus == 'true') {
                     $scope.apply_status = "1"
                 } else {
                     $scope.apply_status = "2"
                 }
             }
         }
-
-        for(var i in action){
-            if(action[i].activity_staus=='true'){
-                $scope.disabled=true
+        for (var i in action) {
+            if (action[i].bid_status == 'true') {
+                $scope.disabled = true
                 break
-            }else{
-                $scope.disabled=false
+
+            } else {
+
+
+                for (var i in action) {
+                    if (action[i].activity_staus == 'true') {
+                        $scope.disabled = true
+                        break
+                    } else {
+                        $scope.disabled = false
+                    }
+                }
             }
         }
 

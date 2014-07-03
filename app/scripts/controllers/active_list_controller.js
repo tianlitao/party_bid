@@ -18,6 +18,7 @@ angular.module('angularApp')
             $location.path('create_activity')
         }
         var apply = JSON.parse(localStorage.getItem('activities'))
+   //     location.reload(true)
 
 
 
