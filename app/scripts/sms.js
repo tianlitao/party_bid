@@ -49,8 +49,30 @@ var native_accessor = {
                     act_list[i].apply_list.push(apply_array)
                     //                   console.log(act_list[0].apply_list)
 
-                    localStorage.setItem('activities',JSON.stringify(act_list))
-                    console.log("报名成功")
+                    localStorage.setItem('activities', JSON.stringify(act_list))
+                    sign_up_page_refresh()
+                    function sign_up_page_refresh() {
+
+                        var refresh_page = document.getElementById('sign_up_page_id')
+                        console.log(refresh_page)
+                        if (refresh_page) {
+                            var scope = angular.element(refresh_page).scope();
+                            console.log(scope)
+                            scope.$apply(function () {
+                                scope.diaoyong();
+
+                            })
+                        }
+                    };
+
+
+//                    new_element=document.createElement("script");
+//                    new_element.setAttribute("type","text/javascript");
+//                    new_element.setAttribute("src","bidding_controller.js");
+//                    document.body.appendChild(new_element);
+//                    function b(){
+
+//                    }
                     break
 
                     //                    }
@@ -59,7 +81,7 @@ var native_accessor = {
                 break
 
             }
-          //  console.log("活动尚未开始")
+            //  console.log("活动尚未开始")
 
         }
     }
@@ -73,4 +95,5 @@ function notify_message_received(message_json) {
     native_accessor.receive_message(message_json);
     //phone_number=message_json.messages[0].phone;
 }
+
 
