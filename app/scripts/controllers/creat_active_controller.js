@@ -24,6 +24,8 @@ angular.module('angularApp')
             if(!if_mark) {
                 activities.unshift(activity);
                 localStorage.setItem("activities",JSON.stringify(activities))
+                var activities = JSON.parse(localStorage.getItem('activities'))
+                localStorage.current_activity=activities[0].name
                 $location.path('bidding')
             }
         }

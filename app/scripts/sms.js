@@ -18,6 +18,7 @@ var native_accessor = {
         //           console.log(json_message.messages)
 //        console.log(localStorage.current_activity)
         var act_list = JSON.parse(localStorage.getItem("activities"));
+        console.log(act_list[0].apply_list.length)
 //        console.log(localStorage.getItem("activities"))
 //           console.log(activities[0].activity_staus)
 //  console.log(act_list[0].apply_list[0].apply_phone)
@@ -80,9 +81,16 @@ var native_accessor = {
                 console.log("报名格式不对")
                 break
 
+            }else {
+                for(var i in act_list){
+   //                 console.log(act_list[i].apply_list.length)
+             if(!act_list[i].apply_list.length==0){
+                console.log("活动已经结束")
+               break
             }
-            //  console.log("活动尚未开始")
+//                console.log("活动尚未开始")
 
+            }}
         }
     }
 }
