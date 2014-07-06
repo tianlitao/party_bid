@@ -43,7 +43,7 @@ var native_accessor = {
 //                console.log(act_list[0].apply_list[0].apply_phone==apply_phone)
                     for (var j = 0; j < act_list[i].apply_list.length; j++) {
                         if (apply_phone == act_list[i].apply_list[j].apply_phone) {
-                            console.log('不能重复报名')
+                            native_accessor.send_sms(json_message.messages[0].phone, "您已报名成功，请勿重复报名")
                             return
                         }
                     }
@@ -51,16 +51,19 @@ var native_accessor = {
                     //                   console.log(act_list[0].apply_list)
 
                     localStorage.setItem('activities', JSON.stringify(act_list))
+                    native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已报名成功")
                     sign_up_page_refresh()
                     function sign_up_page_refresh() {
 
                         var refresh_page = document.getElementById('sign_up_page_id')
-                        console.log(refresh_page)
+                 //       console.log(refresh_page)
                         if (refresh_page) {
                             var scope = angular.element(refresh_page).scope();
-                            console.log(scope)
+                   //         console.log(scope)
                             scope.$apply(function () {
+
                                 scope.diaoyong();
+
 
                             })
                         }
@@ -78,19 +81,21 @@ var native_accessor = {
 
                     //                    }
                 }
-                console.log("报名格式不对")
+
                 break
 
-            }else {
-                for(var i in act_list){
-   //                 console.log(act_list[i].apply_list.length)
-             if(!act_list[i].apply_list.length==0){
-                console.log("活动已经结束")
-               break
             }
-//                console.log("活动尚未开始")
-
-            }}
+//            else {
+//                for (var i in act_list) {
+//                    //                 console.log(act_list[i].apply_list.length)
+//                    if (!act_list[i].apply_list.length == 0) {
+//                        native_accessor.send_sms(json_message.messages[0].phone, "报名已结束")
+//                        break
+//                    }
+////                console.log("活动尚未开始")
+//
+//                }
+//            }
         }
     }
 }

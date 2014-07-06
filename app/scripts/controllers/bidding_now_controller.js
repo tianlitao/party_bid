@@ -25,7 +25,7 @@ angular.module('angularApp')
 
         $scope.end = function () {
             $scope.apply_status = "2"
-            bid_status = 'false'
+           var bid_status = 'false'
             for (var i in bid) {
                 bid[i].bid_status = bid_status
 
@@ -37,7 +37,7 @@ angular.module('angularApp')
             $scope.apply_status = "1"
 
             //      console.log(bid[0].bid_status)
-            bid_status = 'true'
+         var   bid_status = 'true'
             for (var i in bid) {
                 bid[i].bid_status = bid_status
                 //  console.log(bid[0].bid_status)
