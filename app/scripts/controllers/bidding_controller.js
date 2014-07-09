@@ -8,12 +8,7 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         var action = JSON.parse(localStorage.getItem("activities"));
-        for (var i in action) {
-            if (action[i].name == localStorage.current_activity) {
-                $scope.applys = action[i].apply_list;
-                $scope.people = action[i].apply_list.length
-            }
-        }
+
 
 //        console.log(action[0].bid_status==true)
 //       console.log(action[0].activity_staus=='true')
@@ -27,11 +22,12 @@ angular.module('angularApp')
                 }
             }
         }
+        $scope.diaoyong();
         $scope.end = function () {
             if (confirm("你确定结束吗"))
                 $scope.apply_status = "2"
 
-          var  apply_last = "false"
+            var  apply_last = "false"
             //               var act = JSON.parse(localStorage.getItem("activities"));
             //         console.log(localStorage.current_activity)
             for (var i in action) {
@@ -43,7 +39,7 @@ angular.module('angularApp')
         }
         $scope.begain = function () {
             $scope.apply_status = "1"
-         var   apply_last = "true"
+            var   apply_last = "true"
 
 
             //                      var act = JSON.parse(localStorage.getItem("activities"));

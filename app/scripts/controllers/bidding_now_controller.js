@@ -18,10 +18,18 @@ angular.module('angularApp')
                 $scope.bid_start = true
             }
         }
+        $scope.apply_status="2"
+        for(var i in bid){
+            if(bid[i].bid_status=='false'){
+                $scope.apply_status="2"
+            }else{
+                $scope.apply_status="1"
+            }
+        }
         $scope.back = function () {
             $location.path('activity_list')
         }
-        $scope.apply_status = "2"
+
 
         $scope.end = function () {
             $scope.apply_status = "2"

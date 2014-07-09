@@ -56,10 +56,10 @@ var native_accessor = {
                     function sign_up_page_refresh() {
 
                         var refresh_page = document.getElementById('sign_up_page_id')
-                 //       console.log(refresh_page)
+                        //       console.log(refresh_page)
                         if (refresh_page) {
                             var scope = angular.element(refresh_page).scope();
-                   //         console.log(scope)
+                            //         console.log(scope)
                             scope.$apply(function () {
 
                                 scope.diaoyong();
@@ -81,8 +81,9 @@ var native_accessor = {
 
                     //                    }
                 }
-
-                break
+//                console.log("1")
+//                native_accessor.send_sms(json_message.messages[0].phone, "报名已结束")
+//                break
 
             }
 //            else {
@@ -92,8 +93,8 @@ var native_accessor = {
 //                        native_accessor.send_sms(json_message.messages[0].phone, "报名已结束")
 //                        break
 //                    }
-////                console.log("活动尚未开始")
-//
+            native_accessor.send_sms(json_message.messages[0].phone, "报名已结束")
+            break
 //                }
 //            }
         }
