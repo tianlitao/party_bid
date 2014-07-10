@@ -2,8 +2,8 @@
   .header-right
     %button.btn-style.btn-4(ng-click="create_activity()" ) 创建活动
 #wrapper.wrapper.scrollable
-  %form.wrapper-inner
-    %div.wrapper
+  %form
+    %div
       %ul.list-style-2
         %li(class="{{activity.activity_staus}}" ng-click="bid(activity.name)" ng-repeat="activity in activities" style="height:40px")
           {{activity.name}}

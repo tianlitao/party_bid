@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "party_bid",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -36,5 +36,19 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tianlitao/party_bid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tianlitao/party_bid/issues"
+  },
+  "homepage": "https://github.com/tianlitao/party_bid"
 }

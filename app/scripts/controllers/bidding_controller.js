@@ -35,6 +35,7 @@ angular.module('angularApp')
                     action[i].activity_staus = apply_last
                 localStorage.setItem('activities', JSON.stringify(action))
                 $scope.disabled=false
+                $location.path('bidding_now')
             }
         }
         $scope.begain = function () {

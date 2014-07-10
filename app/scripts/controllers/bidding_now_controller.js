@@ -50,7 +50,7 @@ angular.module('angularApp')
                 bid[i].bid_status = bid_status
                 //  console.log(bid[0].bid_status)
                 localStorage.setItem("activities", JSON.stringify(bid))
-
+$location.path('bidding_sign_up')
             }
         }
 

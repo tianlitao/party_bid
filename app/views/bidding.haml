@@ -8,9 +8,10 @@
   %ul.list-style-2
     %li(ng-repeat="apply in applys")
       %h3
-        {{apply.apply_name}}
         %p
-          {{apply.apply_phone}}
+          {{apply.apply_name}}
+          %p.header-right
+            {{apply.apply_phone}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li.active

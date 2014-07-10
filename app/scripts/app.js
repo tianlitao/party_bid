@@ -24,10 +24,10 @@ angular
         templateUrl: 'views/create_activity.html',
         controller: 'Create_activityCtrl'
       })
-      .when('/sign_up', {
+      .when('/bidding_sign_up', {
 
-            templateUrl: 'views/sign_up.html',
-            controller: 'Sign_upCtrl'
+            templateUrl: 'views/bidding_sign_up.html',
+            controller: 'Bidding_sign_upCtrl'
         })
       .when('/bidding', {
         templateUrl: 'views/bidding.html',
