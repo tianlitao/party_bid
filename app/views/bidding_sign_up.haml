@@ -1,9 +1,8 @@
 %header 竞价报名
   .header-left
     %button.btn-style.btn-4(ng-click="back()") 返回
-  .header-right( ng-switch="apply_status")
-    %button.btn-4(ng-switch-when="2" ng-click="begain()" ng-disabled="bid_start")开始
-    %button.btn-4(ng-switch-when="1" ng-click="end()")结束　
+  .header-right
+    %button.btn(ng-click="end()" ng-disabled="bid_start")结束
 #wrapper.wrapper.scrollable
   %form
     %div

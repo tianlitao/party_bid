@@ -24,13 +24,24 @@ angular.module('angularApp')
                 $scope.bid_start = true
             }
         }
+        $scope.bid=function(bidding){
+            $location.path('bidding_sign_up')
+            localStorage.bid=bidding
+        }
         $scope.back = function () {
             $location.path('activity_list')
         }
-        $scope.bid_start = localStorage.getItem("status")
+   //     $scope.bid_start=true
+        console.log(localStorage.getItem('status'))
+       if(localStorage.getItem("status")=="true"){
+            $scope.bid_start=true
+        }else{
+            $scope.bid_start=false
+        }
+
         $scope.begain = function () {
-            localStorage.status = true
-            console.log($scope.bid_start)
+            localStorage.status = "true"
+
             var bid_status = 'true'
             for (var i in bid) {
                 bid[i].bid_status = bid_status
