@@ -8,7 +8,7 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         var action = JSON.parse(localStorage.getItem("activities"));
-console.log(action[0].name)
+        console.log(action[0].name)
 
 //        console.log(action[0].bid_status==true)
 //       console.log(action[0].activity_staus=='true')
@@ -24,23 +24,24 @@ console.log(action[0].name)
         }
         $scope.diaoyong();
         $scope.end = function () {
-            if (confirm("你确定结束吗"))
+            if (confirm("你确定结束吗")) {
                 $scope.apply_status = "2"
 
-            var  apply_last = "false"
-            //               var act = JSON.parse(localStorage.getItem("activities"));
-            //         console.log(localStorage.current_activity)
-            for (var i in action) {
-                if (action[i].name == localStorage.current_activity)
-                    action[i].activity_staus = apply_last
-                localStorage.setItem('activities', JSON.stringify(action))
-                $scope.disabled=false
-                $location.path('bidding_now')
+                var apply_last = "false"
+                //               var act = JSON.parse(localStorage.getItem("activities"));
+                //         console.log(localStorage.current_activity)
+                for (var i in action) {
+                    if (action[i].name == localStorage.current_activity)
+                        action[i].activity_staus = apply_last
+                    localStorage.setItem('activities', JSON.stringify(action))
+                    $scope.disabled = false
+                    $location.path('bidding_now')
+                }
             }
         }
         $scope.begain = function () {
             $scope.apply_status = "1"
-            var   apply_last = "true"
+            var apply_last = "true"
 
 
             //                      var act = JSON.parse(localStorage.getItem("activities"));

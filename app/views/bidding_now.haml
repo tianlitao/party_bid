@@ -7,8 +7,8 @@
   %form
     %div
       %ul.list-style-2
-        %li(class="{{bidding.bidding_staus}}" ng-click="bid(activity.name)" ng-repeat="bidding in biddings" style="height:40px")
-          {{bidding.name}}
+        %li(class="{{bid.bidding_staus}}" ng-click="bid(activity.name)" ng-repeat="bidding in activity" style="height:40px")
+          {{bidding.bid_name}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li
