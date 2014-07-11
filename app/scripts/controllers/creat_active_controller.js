@@ -9,7 +9,7 @@ angular.module('angularApp')
 
         }
         $scope.create = function () {
-            var activity={'name':$scope.activity,'activity_staus':'false','apply_list':[],'bid_status':'false'};
+            var activity={'name':$scope.activity,'activity_staus':'false','apply_list':[],'bid_status':'false','bid_list':[],'bid_message':[]};
             var activities=JSON.parse(localStorage.getItem("activities")) || [];
             var if_mark
             var recyle;

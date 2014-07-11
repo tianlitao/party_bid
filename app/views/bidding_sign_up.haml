@@ -4,3 +4,9 @@
   .header-right( ng-switch="apply_status")
     %button.btn-4(ng-switch-when="2" ng-click="begain()" ng-disabled="bid_start")开始
     %button.btn-4(ng-switch-when="1" ng-click="end()")结束　
+#wrapper.wrapper.scrollable
+  %form
+    %div
+      %ul.list-style-2
+        %li(class="{{activity.activity_staus}}" ng-click="bid(activity.name)" ng-repeat="activity in activities" style="height:40px")
+          {{activity.name}}

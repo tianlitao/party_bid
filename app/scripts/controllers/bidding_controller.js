@@ -8,7 +8,7 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         var action = JSON.parse(localStorage.getItem("activities"));
-
+console.log(action[0].name)
 
 //        console.log(action[0].bid_status==true)
 //       console.log(action[0].activity_staus=='true')

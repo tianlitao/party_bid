@@ -43,17 +43,11 @@ var native_accessor = {
                     native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已报名成功")
                     sign_up_page_refresh()
                     function sign_up_page_refresh() {
-
                         var refresh_page = document.getElementById('sign_up_page_id')
-                        //       console.log(refresh_page)
                         if (refresh_page) {
                             var scope = angular.element(refresh_page).scope();
-                            //         console.log(scope)
                             scope.$apply(function () {
-
                                 scope.diaoyong();
-
-
                             })
                         }
                     };
