@@ -5,5 +5,5 @@
   %form
     %div
       %ul.list-style-2
-        %li(class="{{activity.activity_staus}}" ng-click="bid(activity.name)" ng-repeat="activity in activities" style="height:40px")
+        %li(class="{{activity.activity_staus}} || {{activity.bid_status}}" ng-click="bid(activity.name)" ng-repeat="activity in activities" style="height:40px")
           {{activity.name}}
