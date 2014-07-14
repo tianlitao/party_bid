@@ -6,10 +6,17 @@ angular.module('angularApp')
             if (bid[i].name == localStorage.current_activity) {
                 for (var j = 0; j < bid[i].bid_list.length; j++) {
                     if (bid[i].bid_list[j].bid_name == localStorage.getItem("bid")) {
-                        console.log("1")
-                        $scope.biddings = bid[i].bid_list[j].bid_message;
-                        console.log(bid[i].bid_list[j].bid_message)
-                //        $scope.people = action[i].apply_list.length
+
+                        var bidding = bid[i].bid_list[j].bid_message;
+//                        var applys = bid[i].apply_list
+
+//                        var biddings = _.filter(applys, function (bid) {
+//                            return bid.apply_phone == bidding.bid_phone
+//                        })
+
+                        $scope.biddings = bidding
+                        console.log(bidding)
+                        //        $scope.people = action[i].apply_list.length
 
                     }
                 }
@@ -26,19 +33,21 @@ angular.module('angularApp')
             }
         }
         $scope.end = function () {
-            for (var i in bid) {
-                bid[i].bid_status = "false"
-                localStorage.setItem("activities", JSON.stringify(bid))
+            if (confirm("确定要结束吗")) {
                 for (var i in bid) {
-                    if (bid[i].name == localStorage.current_activity) {
-                        for (var j in bid[i].bid_list) {
-                            bid[i].bid_list[j].bid_color = "false"
-                            localStorage.setItem("activities", JSON.stringify(bid))
+                    bid[i].bid_status = "false"
+                    localStorage.setItem("activities", JSON.stringify(bid))
+                    for (var i in bid) {
+                        if (bid[i].name == localStorage.current_activity) {
+                            for (var j in bid[i].bid_list) {
+                                bid[i].bid_list[j].bid_color = "false"
+                                localStorage.setItem("activities", JSON.stringify(bid))
+                            }
                         }
                     }
                 }
+                $location.path('bidding_now')
             }
-            $location.path('bidding_now')
         }
         $scope.back = function () {
             $location.path('bidding_now')

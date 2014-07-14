@@ -72,19 +72,25 @@ var native_accessor = {
                     var bid_phone = json_message.messages[0].phone
                     var act = act_list[i].apply_list
                     var bid=act_list[i].bid_list[0].bid_message
+
                     var even = _.find(act, function (apply) {
                         return apply.apply_phone == bid_phone;
                     })
+                    console.log(even.apply_name)
                     if (even) {
-                        var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone}
+                      var  bid_name=even.apply_name
+                        var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone,'bid_name':bid_name} || []
+
                         console.log("1")
                         //           for (var j = 0; j < act_list[i].apply_list.length; j++) {
                         if (act_list[i].bid_list[0].bid_message.length == 0) {
+
                             act_list[i].bid_list[0].bid_message.push(bid_message)
                             localStorage.setItem('activities', JSON.stringify(act_list))
                             native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
                             break
                         }
+                        console.log("2")
                         if(_.find(bid,function(bid){
                             return bid.bid_phone==bid_phone
                         })) {
@@ -92,7 +98,9 @@ var native_accessor = {
                                 native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
                                 return
                             } else {
-                                act_list[i].bid_list[j].bid_message.push(bid_message)
+                            console.log("4")
+                            console.log(bid_message)
+                                act_list[i].bid_list[0].bid_message.push(bid_message)
                                 localStorage.setItem('activities', JSON.stringify(act_list))
                                 console.log("3")
                                 native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
