@@ -68,44 +68,43 @@ var native_accessor = {
             if (act_list[i].bid_status == 'true') {
                 var message = json_message.messages[0].message.replace(/\s/g, "");
                 if (message.search(/jj/i) == 0) {
-                    console.log("0")
                     var bid_price = message.substr(2).trim()
                     var bid_phone = json_message.messages[0].phone
                     var act = act_list[i].apply_list
-                    //      for (var z in act_list[i].apply_list) {
-                    //        if (act_list[i].apply_list[z].apply_phone == bid_phone) {
+                    var bid=act_list[i].bid_list[0].bid_message
                     var even = _.find(act, function (apply) {
                         return apply.apply_phone == bid_phone;
                     })
                     if (even) {
-                        console.log("8")
                         var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone}
                         console.log("1")
-                        for (var j = 0; j < act_list[i].apply_list.length; j++) {
-                            console.log("2")
-                            if (act_list[i].bid_list[0].bid_message.length == 0) {
-                                act_list[i].bid_list[0].bid_message.push(bid_message)
-                                localStorage.setItem('activities', JSON.stringify(act_list))
-                                native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
-                                break
-                            }
-                            else {
-                                console.log("3")
-                                if (bid_phone == act_list[i].bid_list[0].bid_message[j].bid_phone) {
-                                    console.log("7")
-                                    native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
-                                    return
-                                }
+                        //           for (var j = 0; j < act_list[i].apply_list.length; j++) {
+                        if (act_list[i].bid_list[0].bid_message.length == 0) {
+                            act_list[i].bid_list[0].bid_message.push(bid_message)
+                            localStorage.setItem('activities', JSON.stringify(act_list))
+                            native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
+                            break
+                        }
+                        if(_.find(bid,function(bid){
+                            return bid.bid_phone==bid_phone
+                        })) {
+                                console.log("7")
+                                native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
+                                return
+                            } else {
                                 act_list[i].bid_list[j].bid_message.push(bid_message)
                                 localStorage.setItem('activities', JSON.stringify(act_list))
+                                console.log("3")
                                 native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
                                 break
                             }
-                            //                          }
-                        }
-                        break
+
                     }
+                    //                          }
+
+                    break
                 }
+                //    }
 
             }
 
