@@ -53,7 +53,7 @@ angular.module('angularApp')
                             var bid_name = "竞价" + (bid[i].bid_list.length + 1)
 
                         }
-                        var bid_list = {'bid_name': bid_name,'bid_color':'true'}
+                        var bid_list = {'bid_name': bid_name,'bid_color':'true','bid_message':[]}
                         bid[i].bid_list.unshift(bid_list)
                         localStorage.setItem('activities', JSON.stringify(bid))
                     }

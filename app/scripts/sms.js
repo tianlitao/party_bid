@@ -65,34 +65,40 @@ var native_accessor = {
 //            }
         }
         for (var i in act_list) {
-            console.log("1")
-
             if (act_list[i].bid_status == 'true') {
-                console.log("2")
                 var message = json_message.messages[0].message.replace(/\s/g, "");
                 if (message.search(/jj/i) == 0) {
                     var bid_price = message.substr(2).trim()
                     var bid_phone = json_message.messages[0].phone
-                    console.log("4")
                     for (var z = 0; z < act_list[i].apply_list.length; j++) {
-                        console.log("3")
                         if (act_list[i].apply_list[z].apply_phone == bid_phone) {
-
                             var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone}
-                            for (var j = 0; j < act_list[i].bid_message.length; j++) {
-                                if (bid_phone == act_list[i].bid_message[j].bid_phone) {
-                                    native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
-                                    return
+                            for (var j = 0; j < act_list[i].apply_list.length; j++) {
+                                if (act_list[i].bid_list[0].bid_message.length == 0) {
+                                    act_list[i].bid_list[0].bid_message.push(bid_message)
+                                    localStorage.setItem('activities', JSON.stringify(act_list))
+                                    native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
+                                    break
+                                } else {
+
+                                    if (bid_phone == act_list[i].bid_list[0].bid_message[j].bid_phone) {
+                                        console.log("7")
+                                        native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
+                                        return
+                                    }
                                 }
+                                act_list[i].bid_list[0].bid_message.push(bid_message)
+                                localStorage.setItem('activities', JSON.stringify(act_list))
+                                native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
+                                break
                             }
-                            act_list[i].bid_message.push(bid_message)
-                            localStorage.setItem('activities', JSON.stringify(act_list))
-                            native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
-                            break
                         }
+                        break
                     }
                 }
+
             }
+
         }
     }
 }

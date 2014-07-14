@@ -2,6 +2,7 @@ angular.module('angularApp')
     .controller('Bidding_sign_upCtrl', function ($scope, $location) {
 
         var bid = JSON.parse(localStorage.getItem("activities"))
+
         for (var i in bid) {
             if (bid[i].bid_status == "true") {
                 $scope.bid_start = false

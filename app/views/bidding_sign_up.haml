@@ -3,9 +3,11 @@
     %button.btn-style.btn-4(ng-click="back()") 返回
   .header-right
     %button.btn(ng-click="end()" ng-disabled="bid_start")结束
-#wrapper.wrapper.scrollable
-  %form
-    %div
-      %ul.list-style-2
-        %li(class="{{activity.activity_staus}}" ng-click="bid(activity.name)" ng-repeat="activity in activities" style="height:40px")
-          {{activity.name}}
+#wrapper.wrapper
+  %ul.list-style-2
+    %li(ng-repeat="apply in applys")
+      %h3
+        %p
+          {{apply.apply_name}}
+          %p.header-right
+            {{apply.apply_phone}}
