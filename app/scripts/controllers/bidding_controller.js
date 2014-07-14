@@ -50,6 +50,7 @@ angular.module('angularApp')
             for (var i in action) {
                 if (action[i].name == localStorage.current_activity)
                     action[i].activity_staus = apply_last
+
                 localStorage.setItem('activities', JSON.stringify(action))
             }
         }

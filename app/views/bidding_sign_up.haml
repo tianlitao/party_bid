@@ -5,9 +5,9 @@
     %button.btn(ng-click="end()" ng-disabled="bid_start")结束
 #wrapper.wrapper
   %ul.list-style-2
-    %li(ng-repeat="apply in applys")
+    %li(ng-repeat="bidding in biddings")
       %h3
         %p
-          {{apply.apply_name}}
+          {{bidding.bid_price}}
           %p.header-right
-            {{apply.apply_phone}}
+            {{bidding.bid_phone}}

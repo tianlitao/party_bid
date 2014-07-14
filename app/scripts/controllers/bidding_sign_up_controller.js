@@ -2,6 +2,21 @@ angular.module('angularApp')
     .controller('Bidding_sign_upCtrl', function ($scope, $location) {
 
         var bid = JSON.parse(localStorage.getItem("activities"))
+        for (var i in bid) {
+            if (bid[i].name == localStorage.current_activity) {
+                for (var j = 0; j < bid[i].bid_list.length; j++) {
+                    if (bid[i].bid_list[j].bid_name == localStorage.getItem("bid")) {
+                        console.log("1")
+                        $scope.biddings = bid[i].bid_list[j].bid_message;
+                        console.log(bid[i].bid_list[j].bid_message)
+                //        $scope.people = action[i].apply_list.length
+
+                    }
+                }
+
+
+            }
+        }
 
         for (var i in bid) {
             if (bid[i].bid_status == "true") {

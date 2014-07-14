@@ -47,6 +47,7 @@ angular.module('angularApp')
                 $location.path('bidding_sign_up')
                 for (var i in bid) {
                     if (bid[i].name == localStorage.current_activity) {
+                        localStorage.bid="竞价" + (bid[i].bid_list.length + 1)
                         if (bid[i].bid_list.length == 0) {
                             var bid_name = "竞价1"
                         } else {
