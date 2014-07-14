@@ -17,6 +17,7 @@ angular.module('angularApp')
 //                        })
 
                             $scope.biddings = bidding
+                            $scope.people=bidding.length
                             console.log(bidding)
                             //        $scope.people = action[i].apply_list.length
 
