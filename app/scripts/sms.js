@@ -71,15 +71,24 @@ var native_accessor = {
                     var bid_price = message.substr(2).trim()
                     var bid_phone = json_message.messages[0].phone
                     var act = act_list[i].apply_list
-                    var bid=act_list[i].bid_list[0].bid_message
+                    var bid = act_list[i].bid_list[0].bid_message
 
                     var even = _.find(act, function (apply) {
                         return apply.apply_phone == bid_phone;
                     })
                     console.log(even.apply_name)
+                    function refresh() {
+                        var refresh_page = document.getElementById('page_id')
+                        if (refresh_page) {
+                            var scope = angular.element(refresh_page).scope();
+                            scope.$apply(function () {
+                                scope.break();
+                            })
+                        }
+                    };
                     if (even) {
-                      var  bid_name=even.apply_name
-                        var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone,'bid_name':bid_name} || []
+                        var bid_name = even.apply_name
+                        var bid_message = {'bid_price': bid_price, 'bid_phone': bid_phone, 'bid_name': bid_name} || []
 
                         console.log("1")
                         //           for (var j = 0; j < act_list[i].apply_list.length; j++) {
@@ -88,24 +97,27 @@ var native_accessor = {
                             act_list[i].bid_list[0].bid_message.push(bid_message)
                             localStorage.setItem('activities', JSON.stringify(act_list))
                             native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
+                            refresh()
+
                             break
                         }
                         console.log("2")
-                        if(_.find(bid,function(bid){
-                            return bid.bid_phone==bid_phone
+                        if (_.find(bid, function (bid) {
+                            return bid.bid_phone == bid_phone
                         })) {
-                                console.log("7")
-                                native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
-                                return
-                            } else {
+                            console.log("7")
+                            native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
+                            return
+                        } else {
                             console.log("4")
                             console.log(bid_message)
-                                act_list[i].bid_list[0].bid_message.push(bid_message)
-                                localStorage.setItem('activities', JSON.stringify(act_list))
-                                console.log("3")
-                                native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
-                                break
-                            }
+                            act_list[i].bid_list[0].bid_message.push(bid_message)
+                            localStorage.setItem('activities', JSON.stringify(act_list))
+                            console.log("3")
+                            native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
+                            refresh()
+                            break
+                        }
 
                     }
                     //                          }

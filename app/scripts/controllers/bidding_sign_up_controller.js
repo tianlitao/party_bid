@@ -2,29 +2,32 @@ angular.module('angularApp')
     .controller('Bidding_sign_upCtrl', function ($scope, $location) {
 
         var bid = JSON.parse(localStorage.getItem("activities"))
-        for (var i in bid) {
-            if (bid[i].name == localStorage.current_activity) {
-                for (var j = 0; j < bid[i].bid_list.length; j++) {
-                    if (bid[i].bid_list[j].bid_name == localStorage.getItem("bid")) {
+        $scope.break = function () {
+            var bid = JSON.parse(localStorage.getItem("activities"))
+            for (var i in bid) {
+                if (bid[i].name == localStorage.current_activity) {
+                    for (var j = 0; j < bid[i].bid_list.length; j++) {
+                        if (bid[i].bid_list[j].bid_name == localStorage.getItem("bid")) {
 
-                        var bidding = bid[i].bid_list[j].bid_message;
+                            var bidding = bid[i].bid_list[j].bid_message;
 //                        var applys = bid[i].apply_list
 
 //                        var biddings = _.filter(applys, function (bid) {
 //                            return bid.apply_phone == bidding.bid_phone
 //                        })
 
-                        $scope.biddings = bidding
-                        console.log(bidding)
-                        //        $scope.people = action[i].apply_list.length
+                            $scope.biddings = bidding
+                            console.log(bidding)
+                            //        $scope.people = action[i].apply_list.length
 
+                        }
                     }
+
+
                 }
-
-
             }
         }
-
+        $scope.break()
         for (var i in bid) {
             if (bid[i].bid_status == "true") {
                 $scope.bid_start = false
