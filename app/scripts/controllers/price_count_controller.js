@@ -18,17 +18,13 @@ angular.module('angularApp')
                         //     $scope.biddings = bidding
                         $scope.people = bidding.length
                         $scope.name = name
-                        $scope.biddings = _.sortBy(bidding, function (bidding) {
-                                return bidding.bid_price
-                            }
-                        )
-                        var count= _.groupBy(bidding,function(bidding){
+                        var count = _.countBy(bidding, function (bidding) {
                             return bidding.bid_price
                         })
-console.log(count)
-                     var coun=   _.map(count,function(key,value){
-                            return {"price":key,"count":value.length}
+                        var coun = _.map(count, function (value, key) {
+                            return {"price": key, "count": value}
                         })
+                        $scope.biddings = coun
 
                         console.log(coun)
                         console.log("")
