@@ -127,11 +127,12 @@ var native_accessor = {
 
                     break
                 }
+                else{
+                    native_accessor.send_sms(json_message.messages[0].phone, "对不起,活动尚未开始")
+                    break
                 //    }
 
-            }else{
-                native_accessor.send_sms(json_message.messages[0].phone, "对不起,活动尚未开始")
-                break
+            }
             }
 
         }
