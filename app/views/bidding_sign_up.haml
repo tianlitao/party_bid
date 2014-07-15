@@ -6,7 +6,7 @@
     %button.btn(ng-click="end()" ng-disabled="bid_start")结束
 #wrapper.wrapper
   %ul.list-style-2
-    %li(ng-repeat="bidding in biddings")
+    %li(ng-repeat="bidding in biddings track by $index")
       %h3
         {{bidding.bid_name}}
       %p

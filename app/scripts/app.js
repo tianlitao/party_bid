@@ -29,6 +29,16 @@ angular
             templateUrl: 'views/bidding_sign_up.html',
             controller: 'Bidding_sign_upCtrl'
         })
+        .when('/bid_result', {
+
+            templateUrl: 'views/bid_result.html',
+            controller: 'Bid_resultCtrl'
+        })
+        .when('/price_count', {
+
+            templateUrl: 'views/price_count.html',
+            controller: 'Price_countCtrl'
+        })
       .when('/bidding', {
         templateUrl: 'views/bidding.html',
         controller: 'BiddingCtrl'

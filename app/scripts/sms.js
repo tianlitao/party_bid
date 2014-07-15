@@ -119,6 +119,9 @@ var native_accessor = {
                             break
                         }
 
+                    }else{
+                        native_accessor.send_sms(json_message.messages[0].phone, "对不起,您没有报名此次活动")
+                        break
                     }
                     //                          }
 
@@ -126,6 +129,9 @@ var native_accessor = {
                 }
                 //    }
 
+            }else{
+                native_accessor.send_sms(json_message.messages[0].phone, "对不起,活动尚未开始")
+                break
             }
 
         }
