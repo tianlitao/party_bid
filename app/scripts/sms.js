@@ -76,7 +76,7 @@ var native_accessor = {
                     var even = _.find(act, function (apply) {
                         return apply.apply_phone == bid_phone;
                     })
-                    console.log(even.apply_name)
+         //           console.log(even.apply_name)
                     function refresh() {
                         var refresh_page = document.getElementById('page_id')
                         if (refresh_page) {
