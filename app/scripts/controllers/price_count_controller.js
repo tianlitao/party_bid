@@ -25,6 +25,7 @@ angular.module('angularApp')
                             return {"price": key, "count": value}
                         })
                         $scope.biddings = coun
+                        localStorage.setItem("bid_price",JSON.stringify(coun))
 
                         console.log(coun)
                         console.log("")
