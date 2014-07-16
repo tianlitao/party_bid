@@ -76,7 +76,7 @@ var native_accessor = {
                     var even = _.find(act, function (apply) {
                         return apply.apply_phone == bid_phone;
                     })
-         //           console.log(even.apply_name)
+                    //           console.log(even.apply_name)
                     function refresh() {
                         var refresh_page = document.getElementById('page_id')
                         if (refresh_page) {
@@ -119,7 +119,7 @@ var native_accessor = {
                             break
                         }
 
-                    }else{
+                    } else {
                         native_accessor.send_sms(json_message.messages[0].phone, "对不起,您没有报名此次活动")
                         break
                     }
@@ -127,12 +127,12 @@ var native_accessor = {
 
                     break
                 }
-                else{
+                else {
                     native_accessor.send_sms(json_message.messages[0].phone, "对不起,活动尚未开始")
                     break
-                //    }
+                    //    }
 
-            }
+                }
             }
 
         }

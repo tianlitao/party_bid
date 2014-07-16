@@ -1,10 +1,16 @@
 angular.module('angularApp')
-    .controller('Bid_resultCtrl', function ($scope, $location) {
+    .controller('Bid_resultCtrl', function ($scope, $location,$timeout) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
+        $timeout(function () {
+            $('#ModalSuccess').modal("show");
+            $timeout(function () {
+                $('#ModalSuccess').modal('hide');
+            }, 3000)
+        })
         var bid = JSON.parse(localStorage.getItem("activities"))
         var bid_price = JSON.parse(localStorage.getItem("bid_price"))
         for (var z in bid_price) {
@@ -15,17 +21,15 @@ angular.module('angularApp')
                         var bid_messages = _.find(bid_message, function (bid) {
                             return bid.bid_price == bid_price[z].price
                         })
-
-             //           alert((bid_messages.bid_name)+"  ￥"+(bid_messages.bid_price)+"竞价成功")
-                    if(bid_messages){
-                        $scope.success="true"
-                        $scope.bid_name=bid_messages.bid_name
-                        $scope.price=bid_messages.bid_price
-                        $scope.phone=bid_messages.bid_phone
-                    }}
-
+                        //           alert((bid_messages.bid_name)+"  ￥"+(bid_messages.bid_price)+"竞价成功")
+                        if (bid_messages) {
+                            $scope.success = "true"
+                            $scope.bid_name = bid_messages.bid_name
+                            $scope.price = bid_messages.bid_price
+                            $scope.phone = bid_messages.bid_phone
+                        }
+                    }
                 }
-                //            alert(bid_price[z].price)
                 break
             }
         }
