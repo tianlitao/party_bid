@@ -37,6 +37,16 @@ angular.module('angularApp')
         $scope.end = function () {
             var bid = JSON.parse(localStorage.getItem("activities"))
             if (confirm("确定要结束吗")) {
+                function refresh() {
+                    var refresh_page = document.getElementById('id')
+                    if (refresh_page) {
+                        var scope = angular.element(refresh_page).scope();
+                        scope.$apply(function () {
+                            scope.refreshes();
+                        })
+                    }
+                };
+                refresh()
                 for (var i in bid) {
                     $scope.bid_start = true
                     bid[i].bid_status = "false"

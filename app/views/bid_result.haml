@@ -16,6 +16,10 @@
     %pre
       竞价结果：{{bid_name}}    ￥{{price}}    {{phone}}    竞价成功！
 %footer
+  %div(ng-show="fail")
+    %pre
+      竞价失败！
+%footer
   %ul.footer-nav.footer-nav-2tabs
     %li.active
       %a(href="#/bidding")
@@ -27,7 +31,7 @@
   .modal-dialog
     .modal-content
       .modal-header
-      %a(class="close" data-dismiss="modal") &times
+      %a(class="close" data-dismiss="modal" ) &times
         %h4.modal-title
       .modal-body
       %center
