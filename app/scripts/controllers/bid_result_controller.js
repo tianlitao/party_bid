@@ -25,40 +25,72 @@ angular.module('angularApp')
             }
         }
         var bid_price = JSON.parse(localStorage.getItem("bid_price"))
-        for (var z in bid_price) {
-            if (bid_price[z].count == 1) {
-                if (localStorage.status == "false") {
+        var bids= _.find(bid_price,function(bid){return bid.count==1})
+        if (bids) {
+            if (localStorage.status == "false") {
+                $timeout(function () {
+                    $('#ModalSuccess').modal("show");
                     $timeout(function () {
-                        $('#ModalSuccess').modal("show");
-                        $timeout(function () {
-                            $('#ModalSuccess').modal('hide');
-                        }, 3000)
-                    })
-                }
-                for (var i in bid) {
-                    if (bid[i].name == localStorage.current_activity) {
-                        var bid_message = bid[i].bid_list[0].bid_message
-                        var bid_messages = _.find(bid_message, function (bid) {
-                            return bid.bid_price == bid_price[z].price
-                        })
-
-                        if (bid_messages) {
-
-                            $scope.success = "true"
-                            $scope.fail = "false"
-                            $scope.bid_name = bid_messages.bid_name
-                            $scope.price = bid_messages.bid_price
-                            $scope.phone = bid_messages.bid_phone
-                        }
-                    }
-                }
-                break
-            } else {
-                $scope.success = "false"
-                $scope.fail = "true"
-
+                        $('#ModalSuccess').modal('hide');
+                    }, 3000)
+                })
             }
+            var bidding = _.find(bid, function (bid) {
+                return bid.name == localStorage.current_activity
+            })
+            if (bidding) {
+                var bid_message = bidding.bid_list[0].bid_message
+                var bid_messages = _.find(bid_message, function (bid) {
+                    return bid.bid_price == bids.price
+                })
+
+                if (bid_messages) {
+
+                    $scope.success = "true"
+                    $scope.fail = "false"
+                    $scope.bid_name = bid_messages.bid_name
+                    $scope.price = bid_messages.bid_price
+                    $scope.phone = bid_messages.bid_phone
+                }
+            }
+        } else {
+            $scope.success = "false"
+            $scope.fail = "true"
         }
+//        for (var z in bid_price) {
+//            if (bid_price[z].count == 1) {
+//                if (localStorage.status == "false") {
+//                    $timeout(function () {
+//                        $('#ModalSuccess').modal("show");
+//                        $timeout(function () {
+//                            $('#ModalSuccess').modal('hide');
+//                        }, 3000)
+//                    })
+//                }
+//                for (var i in bid) {
+//                    if (bid[i].name == localStorage.current_activity) {
+//                        var bid_message = bid[i].bid_list[0].bid_message
+//                        var bid_messages = _.find(bid_message, function (bid) {
+//                            return bid.bid_price == bid_price[z].price
+//                        })
+//
+//                        if (bid_messages) {
+//
+//                            $scope.success = "true"
+//                            $scope.fail = "false"
+//                            $scope.bid_name = bid_messages.bid_name
+//                            $scope.price = bid_messages.bid_price
+//                            $scope.phone = bid_messages.bid_phone
+//                        }
+//                    }
+//                }
+//                break
+//            } else {
+//                $scope.success = "false"
+//                $scope.fail = "true"
+//            }
+//
+//        }
 
         for (var i in bid) {
             if (bid[i].name == localStorage.current_activity) {

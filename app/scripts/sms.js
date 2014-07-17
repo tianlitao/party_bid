@@ -13,12 +13,11 @@ var native_accessor = {
             this.process_received_message(json_message);
         }
     },
-
     process_received_message: function (json_message) {
         var act_list = JSON.parse(localStorage.getItem("activities"));
         //     console.log(act_list[0].apply_list.length)
         for (var i in act_list) {
-            if (act_list[i].activity_staus == 'true') {
+            if (act_list[i].activity_status == 'true') {
                 var message = json_message.messages[0].message.replace(/\s/g, "");
                 if (message.search(/bm/i) == 0) {
                     var apply_name = message.substr(2).trim()

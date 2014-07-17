@@ -8,30 +8,29 @@ angular.module('angularApp')
             $location.path('activity_list')
         }
         var action = JSON.parse(localStorage.getItem("activities"));
-//        console.log(action[0].bid_status==true)
-//       console.log(action[0].activity_staus=='true')
-
         $scope.diaoyong = function () {
             var action = JSON.parse(localStorage.getItem("activities"));
-            for (var i in action) {
-                if (action[i].name == localStorage.current_activity) {
-                    $scope.applys = action[i].apply_list;
-                    $scope.people = action[i].apply_list.length
+            var act = _.find(action, function (act) {
+                return act.name == localStorage.current_activity
+            })
+            if (act) {
+                $scope.applys = act.apply_list
+                $scope.people = act.apply_list.length
 
-                }
             }
         }
         $scope.diaoyong();
         $scope.end = function () {
             if (confirm("你确定结束吗")) {
                 $scope.apply_status = "2"
-                var apply_last = "false"
                 //               var act = JSON.parse(localStorage.getItem("activities"));
                 //         console.log(localStorage.current_activity)
                 var actions = JSON.parse(localStorage.getItem("activities"));
-                for (var i in actions) {
-                    if (actions[i].name == localStorage.current_activity)
-                        actions[i].activity_staus = apply_last
+                var activity = _.find(actions, function (act) {
+                    return act.name == localStorage.current_activity
+                })
+                if (activity) {
+                    activity.activity_status = "false"
                     localStorage.setItem('activities', JSON.stringify(actions))
                     $scope.disabled = false
                     $location.path('bidding_now')
@@ -40,48 +39,34 @@ angular.module('angularApp')
         }
         $scope.begain = function () {
             $scope.apply_status = "1"
-            var apply_last = "true"
-
-
-            //                      var act = JSON.parse(localStorage.getItem("activities"));
-
-//            console.log(typeof(act[0].activity_staus))
-//            console.log(typeof(apply_last))
-            for (var i in action) {
-                if (action[i].name == localStorage.current_activity)
-                    action[i].activity_staus = apply_last
-
+            var act = _.find(action, function (act) {
+                return act.name == localStorage.current_activity
+            })
+            if (act) {
+                act.activity_status = "true"
                 localStorage.setItem('activities', JSON.stringify(action))
             }
         }
-        for (var j in action) {
-            if (action[j].name == localStorage.current_activity) {
-                if (action[j].activity_staus == 'true') {
-                    $scope.apply_status = "1"
-                } else {
-                    $scope.apply_status = "2"
-                }
-            }
+        var act = _.find(action, function (act) {
+            return act.name == localStorage.current_activity && act.activity_status == 'true'
+        })
+        if (act) {
+            $scope.apply_status = "1"
+        } else {
+            $scope.apply_status = "2"
         }
-        for (var i in action) {
-            if (action[i].bid_status == 'true') {
+        if (_.find(action, function (action) {
+            return action.bid_status == 'true'
+        })) {
+            $scope.disabled = true
+        } else {
+            if (_.find(action, function (action) {
+                return action.activity_status == 'true'
+            })) {
                 $scope.disabled = true
-                break
-
             } else {
-
-
-                for (var i in action) {
-                    if (action[i].activity_staus == 'true') {
-                        $scope.disabled = true
-                        break
-                    } else {
-                        $scope.disabled = false
-                    }
-                }
+                $scope.disabled = false
             }
         }
-
-
     }
 )
