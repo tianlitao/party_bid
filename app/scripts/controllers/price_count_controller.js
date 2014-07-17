@@ -37,9 +37,7 @@ angular.module('angularApp')
                     var bid_messages = _.find(bid_message, function (bid) {
                         return bid.bid_price == bids.price
                     })
-
                     if (bid_messages) {
-
                         $scope.success = "true"
                         $scope.fail = "false"
                         $scope.bid_name = bid_messages.bid_name
@@ -57,7 +55,5 @@ angular.module('angularApp')
             localStorage.status == false
             $location.path('bidding_now')
         }
-
-
     });
 
