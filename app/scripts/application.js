@@ -34,4 +34,6 @@ myModule.directive('ngTap', function() {
 var native_access;
 $(document).ready(function () {
     native_access = new NativeAccess();
+    if(!localStorage.activities)
+        localStorage.activities=JSON.stringify([]);
 });
