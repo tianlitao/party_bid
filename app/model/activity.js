@@ -25,3 +25,10 @@ Activity.save_current_activity=function(){
     var activities = JSON.parse(localStorage.getItem('activities'))
     localStorage.current_activity = activities[0].name
 }
+Activity.save_click_activity=function(activity){
+    var activities = JSON.parse(localStorage.getItem('activities'))
+    localStorage.current_activity = activity
+}
+Activity.get_activities=function(){
+   return JSON.parse(localStorage.getItem('activities'))
+}

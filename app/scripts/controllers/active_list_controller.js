@@ -5,17 +5,11 @@ angular.module('angularApp')
     .controller('Activity_listCtrl', function ($scope, $location) {
         $scope.bid = function (activity) {
             $location.path('bidding')
-            localStorage.current_activity = activity;
+            Activity.save_click_activity(activity)
         }
-        $scope.create_activity = function () {
-            $location.path('create_activity')
-        };
-        $scope.activities = JSON.parse(localStorage.getItem('activities'))
-        if (!localStorage.getItem("activities")) {
+        $scope.activities = Activity.get_activities()
+        if (!Activity.check_activity_list_exist()) {
             $location.path('create_activity')
         }
-
-
-
     }
 )
