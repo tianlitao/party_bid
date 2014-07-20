@@ -1,12 +1,5 @@
 angular.module('angularApp')
     .controller('Bid_resultCtrl', function ($scope, $location, $timeout) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
-
-
         var bid = JSON.parse(localStorage.getItem("activities"))
         for (var i in bid) {
             if (bid[i].name == localStorage.current_activity) {

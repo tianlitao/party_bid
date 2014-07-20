@@ -20,7 +20,7 @@ angular.module('angularApp')
         var bidding = _.find(bid, function (bidding) {
             return bidding.name == localStorage.current_activity
         })
-            $scope.activity = Bid.check_current_activity_bid_list()
+        $scope.activity = Bid.check_current_activity_bid_list()
 
         if (Bid.check_activity_status_length()) {
             $scope.bid_start = true
@@ -34,12 +34,10 @@ angular.module('angularApp')
         }
         $scope.begain = function () {
             $location.path('bidding_sign_up')
-      //      Bid.save_bid_status()
+  //          Bid.save_bid_status()
             if (bidding) {
                 bidding.bid_status = "true"
                 localStorage.setItem("activities", JSON.stringify(bid))
-
-
                 localStorage.bid = "竞价" + (bidding.bid_list.length + 1)
                 var bid_name = "竞价" + (bidding.bid_list.length + 1)
                 var bid_list = {'bid_name': bid_name, 'bid_color': 'true', 'bid_message': []}
