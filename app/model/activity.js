@@ -11,12 +11,8 @@ function Activity (name){
 Activity.check_activity_list_exist=function(){
 return localStorage.getItem('activities')
 }
-//Activity.activity_name_repeat=function(){
-//    var activities=JSON.parse(localStorage.getItem("activities"))
-//    return _.find(activities,function(act){  return act.name==this.name })
-//}
 Activity.save_message=function(activity){
-    var activities = JSON.parse(localStorage.getItem("activities")) || [];
+    var activities = JSON.parse(localStorage.getItem("activities"));
     activities.unshift(activity)
     localStorage.setItem("activities", JSON.stringify(activities))
 
@@ -33,7 +29,7 @@ Activity.get_activities=function(){
    return JSON.parse(localStorage.getItem('activities'))
 }
 Activity.check_rename=function($scope){
-    var activities = JSON.parse(localStorage.getItem("activities")) || [];
+    var activities = JSON.parse(localStorage.getItem("activities"));
     return(_.find(activities, function (act) {
         return act.name == $scope.activity
     }))
@@ -46,7 +42,6 @@ Activity.judge_check_rename=function($scope){
     if(!Activity.check_rename($scope)){
         Activity.save_message(activity)
         Activity.save_current_activity()
-        $location.path('bidding')
     }
 }
 

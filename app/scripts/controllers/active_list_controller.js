@@ -2,7 +2,7 @@
  * Created by tlt on 14-6-21.
  */
 angular.module('angularApp')
-    .controller('Activity_listCtrl', function ($scope, $location) {
+    .controller('ActivitylistCtrl', function ($scope, $location) {
         $scope.bid = function (activity) {
             $location.path('bidding')
             Activity.save_click_activity(activity)

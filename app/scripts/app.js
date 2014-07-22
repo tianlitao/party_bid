@@ -27,17 +27,17 @@ angular
       .when('/bidding_sign_up', {
 
             templateUrl: 'views/bidding_sign_up.html',
-            controller: 'Bidding_sign_upCtrl'
+            controller: 'BiddingsignupCtrl'
         })
         .when('/bid_result', {
 
             templateUrl: 'views/bid_result.html',
-            controller: 'Bid_resultCtrl'
+            controller: 'BidresultCtrl'
         })
         .when('/price_count', {
 
             templateUrl: 'views/price_count.html',
-            controller: 'Price_countCtrl'
+            controller: 'PricecountCtrl'
         })
       .when('/bidding', {
         templateUrl: 'views/bidding.html',
@@ -45,11 +45,11 @@ angular
       })
       .when('/bidding_now', {
             templateUrl: 'views/bidding_now.html',
-            controller: 'Bidding_nowCtrl'
+            controller: 'BiddingnowCtrl'
         })
       .when('/', {
         templateUrl: 'views/activity_list.html',
-        controller: 'Activity_listCtrl'
+        controller: 'ActivitylistCtrl'
         })
       .otherwise({
         redirectTo: '/'

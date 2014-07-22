@@ -1,6 +1,5 @@
 angular.module('angularApp')
-    .controller('Bidding_sign_upCtrl', function ($scope, $location) {
-        var bid = JSON.parse(localStorage.getItem("activities"))
+    .controller('BiddingsignupCtrl', function ($scope, $location) {
         $scope.break = function () {
             $scope.biddings = Bid.check_current_activity_bid()
             $scope.people = Bid.check_current_activity_bid().length
