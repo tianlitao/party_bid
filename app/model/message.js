@@ -4,6 +4,20 @@
 function Message() {
 
 }
+Message.check_message_j = function (json_message) {
+    var act_list = JSON.parse(localStorage.getItem("activities"));
+    var message = json_message.messages[0].message.replace(/\s/g, "");
+    return( _.find(act_list, function (act) {
+        return act.bid_status == 'false' && message.search(/jj/i) == 0
+    }))
+}
+Message.check_status=function(json_message){
+    var message = json_message.messages[0].message.replace(/\s/g, "");
+    var act_list = JSON.parse(localStorage.getItem("activities"));
+    return(_.find(act_list, function (act) {
+        return act.activity_status == 'false' && message.search(/bm/i) == 0
+    }))
+}
 Message.check_activity_status_bm = function (json_message) {
     var act_list = JSON.parse(localStorage.getItem("activities"));
     var message = json_message.messages[0].message.replace(/\s/g, "");
@@ -68,7 +82,6 @@ Message.refresh_bid=function(){
 }
 Message.save_bid_message=function(json_message){
     var act_list = JSON.parse(localStorage.getItem("activities"));
-
     var message = json_message.messages[0].message.replace(/\s/g, "");
     var activity= _.find(act_list, function (act) {
         return act.bid_status == 'true' && message.search(/jj/i) == 0
@@ -81,10 +94,6 @@ Message.save_bid_message=function(json_message){
     console.log("1")
     activity.bid_list[0].bid_message.push(bid_message)
     localStorage.setItem('activities', JSON.stringify(act_list))
-
-
-
-
 }
 Message.check_bid_phone=function(json_message){
     var activity=Message.check_message_jj(json_message)

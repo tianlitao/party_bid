@@ -13,6 +13,10 @@ var native_accessor = {
         }
     },
     process_received_message: function (json_message) {
+        if(Message.check_status(json_message)){
+            native_accessor.send_sms(json_message.messages[0].phone, "对不起活动尚未开始")
+            return;
+        }
         if (Message.check_activity_status_bm(json_message)) {
             native_accessor.send_sms(json_message.messages[0].phone, "您已报名成功，请勿重复报名")
             return;
@@ -23,12 +27,15 @@ var native_accessor = {
             Message.refresh()
             return;
         }
-        console.log("1")
+        if(Message.check_message_j(json_message)){
+            native_accessor.send_sms(json_message.messages[0].phone, "竞价尚未开始")
+            return
+        }
         if (Message.check_message_phone(json_message) && Message.check_message_jj(json_message) && Message.check_bid_phone(json_message)) {
             native_accessor.send_sms(json_message.messages[0].phone, "请勿重复竞价")
             return
         }
-        console.log("2")
+
         if (Message.check_message_phone(json_message) && Message.check_message_jj(json_message)) {
             Message.save_bid_message(json_message)
             native_accessor.send_sms(json_message.messages[0].phone, "恭喜您已竞价成功")
