@@ -22,22 +22,22 @@ angular
       .when('/create_activity', {
 
         templateUrl: 'views/create_activity.html',
-        controller: 'Create_activityCtrl'
+        controller: 'CreateActivityCtrl'
       })
       .when('/bidding_sign_up', {
 
             templateUrl: 'views/bidding_sign_up.html',
-            controller: 'BiddingsignupCtrl'
+            controller: 'BiddingSignUpCtrl'
         })
         .when('/bid_result', {
 
             templateUrl: 'views/bid_result.html',
-            controller: 'BidresultCtrl'
+            controller: 'BidResultCtrl'
         })
         .when('/price_count', {
 
             templateUrl: 'views/price_count.html',
-            controller: 'PricecountCtrl'
+            controller: 'PriceCountCtrl'
         })
       .when('/bidding', {
         templateUrl: 'views/bidding.html',
@@ -45,11 +45,11 @@ angular
       })
       .when('/bidding_now', {
             templateUrl: 'views/bidding_now.html',
-            controller: 'BiddingnowCtrl'
+            controller: 'BiddingNowCtrl'
         })
       .when('/', {
         templateUrl: 'views/activity_list.html',
-        controller: 'ActivitylistCtrl'
+        controller: 'ActivityListCtrl'
         })
       .otherwise({
         redirectTo: '/'

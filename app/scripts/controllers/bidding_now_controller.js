@@ -5,7 +5,7 @@
  * Created by tlt on 14-6-21.
  */
 angular.module('angularApp')
-    .controller('BiddingnowCtrl', function ($scope, $location) {
+    .controller('BiddingNowCtrl', function ($scope, $location) {
         Bid.judge_check_bid_status($scope)
         $scope.activity = Bid.check_current_activity_bid_list()
         Bid.judge_check_activity_status_length($scope)

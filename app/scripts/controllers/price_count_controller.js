@@ -2,7 +2,7 @@
  * Created by tlt on 14-7-15.
  */
 angular.module('angularApp')
-    .controller('PricecountCtrl', function ($scope, $location) {
+    .controller('PriceCountCtrl', function ($scope, $location) {
         localStorage.status = true
         $scope.refreshes = function () {
             var bid_price = JSON.parse(localStorage.getItem("bid_price"))

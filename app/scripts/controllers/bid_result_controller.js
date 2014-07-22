@@ -1,5 +1,5 @@
 angular.module('angularApp')
-    .controller('BidresultCtrl', function ($scope, $location, $timeout) {
+    .controller('BidResultCtrl', function ($scope, $location, $timeout) {
         Bid.save_bid_price()
         var bid_price = JSON.parse(localStorage.getItem("bid_price"))
         if (Bid.check_bid_price_bid_count() && localStorage.status == "false") {

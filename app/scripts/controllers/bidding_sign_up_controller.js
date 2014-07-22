@@ -1,5 +1,5 @@
 angular.module('angularApp')
-    .controller('BiddingsignupCtrl', function ($scope, $location) {
+    .controller('BiddingSignUpCtrl', function ($scope, $location) {
         $scope.break = function () {
             $scope.biddings = Bid.check_current_activity_bid()
             $scope.people = Bid.check_current_activity_bid().length
