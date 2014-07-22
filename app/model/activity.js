@@ -32,3 +32,24 @@ Activity.save_click_activity=function(activity){
 Activity.get_activities=function(){
    return JSON.parse(localStorage.getItem('activities'))
 }
+Activity.check_rename=function($scope){
+    var activities = JSON.parse(localStorage.getItem("activities")) || [];
+    return(_.find(activities, function (act) {
+        return act.name == $scope.activity
+    }))
+}
+Activity.judge_check_rename=function($scope){
+    var activity = new Activity($scope.activity);
+    if(Activity.check_rename($scope)){
+        $scope.hide = 1
+    }
+    if(!Activity.check_rename($scope)){
+        Activity.save_message(activity)
+        Activity.save_current_activity()
+        $location.path('bidding')
+    }
+}
+
+
+
+

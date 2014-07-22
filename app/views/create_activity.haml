@@ -7,7 +7,7 @@
     %h5 活动名称
     %input.input-full(ng-model="activity")
     %p
-    %button.btn(ng-click="create()" ng-disabled="!activity" style="width:100%" ) 创建
+    %a.btn(href='#/bidding' ng-click="create()" ng-disabled="!activity" style="width:100%" ) 创建
     %div.logo-flat(style="color:#ff0000" ng-show="hide")  活动名重复
 
 

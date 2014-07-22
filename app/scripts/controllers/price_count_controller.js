@@ -10,18 +10,7 @@ angular.module('angularApp')
             $scope.name=localStorage.bid
             $scope.biddings=bid_price
             $scope.people=bidding.length
-            if(Bid.check_bid_price_bid_count() && Bid.check_cruuent_activity() && Bid.check_bid_messages_bid_price()){
-                var bid_messages =Bid.check_bid_messages_bid_price()
-                console.log(Bid.check_bid_messages_bid_price())
-                $scope.success = "true"
-                $scope.fail = "false"
-                $scope.bid_name = bid_messages.bid_name
-                $scope.price = bid_messages.bid_price
-                $scope.phone = bid_messages.bid_phone
-            }else {
-                $scope.success = "false"
-                $scope.fail = "true"
-           }
+            Bid.judge_check_bid_price_bid_count_current_activity_bid_messages_bid_price($scope)
         }
         $scope.refreshes()
         $scope.back = function () {

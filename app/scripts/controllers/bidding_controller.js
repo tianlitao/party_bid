@@ -21,17 +21,7 @@ angular.module('angularApp')
             Bid.save_activity_status(localStorage.current_activity)
         }
         $scope.apply_status = "2"
-        if (Bid.check_current_activity_activity_status()) {
-            $scope.apply_status = "1"
-        }
-        if (Bid.check_bid_status()) {
-            $scope.disabled = true
-        } else {
-            if (Bid.check_activity_status()) {
-                $scope.disabled = true
-            } else {
-                $scope.disabled = false
-            }
-        }
+        Bid.judege_check_current_activity_activity_status($scope)
+        Bid.judge_check_bid_status_activity_status($scope)
     }
 )
