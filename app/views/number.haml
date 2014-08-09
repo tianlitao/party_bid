@@ -1,0 +1,11 @@
+%header 猜数字
+  .header-left
+    %a.btn-style.btn-4(href="#/creat_activity") 返回
+#wrapper.wrapper.scrollable
+  %form
+    %fieldset.form-wrapper
+    %input.input-full(ng-model="activity")
+    %p
+    %button.btn(ng-click="create()" style="width:100%" ng-disabled="!activity") 猜
+    %div.logo-flat(style="color:#ff0000")
+      {{relay}}

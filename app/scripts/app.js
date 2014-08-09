@@ -43,13 +43,25 @@ angular
         templateUrl: 'views/bidding.html',
         controller: 'BiddingCtrl'
       })
+        .when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
+        })
       .when('/bidding_now', {
             templateUrl: 'views/bidding_now.html',
             controller: 'BiddingNowCtrl'
         })
+        .when('/activity_list', {
+            templateUrl: 'views/activity_list.html',
+            controller: 'ActivityListCtrl'
+        })
+//        .when('/number', {
+//            templateUrl: 'views/number.html',
+//            controller: 'NumberCtrl'
+//        })
       .when('/', {
-        templateUrl: 'views/activity_list.html',
-        controller: 'ActivityListCtrl'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
         })
       .otherwise({
         redirectTo: '/'

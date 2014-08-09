@@ -68,10 +68,18 @@ module.exports = function (grunt) {
             }
         },
         haml: {
+            login: {
+                src: 'app/views/login.haml',
+                dest: 'app/views/login.html'
+            },
             bidding: {
                 src: 'app/views/bidding.haml',
                 dest: 'app/views/bidding.html'
             },
+//            number: {
+//                src: 'app/views/number.haml',
+//                dest: 'app/views/number.html'
+//            },
             active_list: {
                 src: 'app/views/activity_list.haml',
                 dest: 'app/views/activity_list.html'

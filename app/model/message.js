@@ -24,7 +24,7 @@ Message.check_activity_status_bm = function (json_message) {
     var apply_phone = json_message.messages[0].phone
     if (message.search(/bm/i) == 0) {
         var act = _.findWhere(act_list, {activity_status: 'true'}).apply_list
-        return( _.find(act, function (act) {
+        return( _.find(act, function (act){
             return act.apply_phone == apply_phone
         }))
 
